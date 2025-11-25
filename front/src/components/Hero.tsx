@@ -1,12 +1,8 @@
 import DarkVeil from './DarkVeil.tsx';
-import CarViewer from './CarViewer';
 import { useNavigate } from 'react-router-dom';
+import CarViewer from './CarViewer.tsx';
 
-type Props = {
-  onViewVehicles?: () => void;
-};
-
-export default function Hero({ onViewVehicles }: Props) {
+export default function Hero() {
   const navigate = useNavigate();
 
   return (
@@ -65,7 +61,7 @@ export default function Hero({ onViewVehicles }: Props) {
       {/* Viewer absolu au-dessus de tout pour permettre au modèle de déborder
           - z-60 pour être au-dessus de la navbar (qui est z-50) */}
       <div className="pointer-events-auto absolute top-1/2 right-0 transform -translate-y-1/2 z-60 w-[60%] h-screen max-w-[1100px]">
-        {/* <CarViewer modelUrl="/models/mycar/bugatti-divo/source/2019_bugatti_divo_110_ans.glb" /> */}
+        <CarViewer modelUrl="/models/mycar/bugatti-divo/source/2019_bugatti_divo_110_ans.glb" />
       </div>
     </section>
   );

@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { cars } from '../data/cars';
 
 // Typage des props pour le bouton retour
-type ListCarsProps = {
-  onBack: () => void;
-  onSelectCar?: (id: number) => void;
-};
-
-const ListCars = ({ onBack, onSelectCar }: ListCarsProps) => {
+const ListCars = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Tout');
-  const [maxPrice, setMaxPrice] = useState(1000000);
   const [maxPrice, setMaxPrice] = useState(1000000);
 
   // Filtrage
@@ -163,7 +159,7 @@ return (
                             {car.price.toLocaleString()} <span className="text-violet-400">€</span>
                         </span>
                         <button
-                          onClick={() => onSelectCar && onSelectCar(car.id)}
+                          onClick={() => navigate(`/stock/${car.id}`)}
                           className="cursor-pointer px-4 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-violet-400 hover:text-white transition-all duration-300"
                         >
                             Voir détails

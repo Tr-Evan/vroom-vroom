@@ -1,15 +1,9 @@
 // front/src/pages/CarDetails.tsx
 
-import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import CarViewer from '../components/CarViewer';
 import { cars } from '../data/cars';
-
-// Définition des props pour le composant
-type CarDetailsProps = {
-  carId: number | null; // L'ID de la voiture à afficher
-  onBack: () => void;
-};
 
 // Composant utilitaire pour les lignes de la fiche technique (thème sombre)
 const SpecItem = ({ label, value }: { label: string; value: string | number }) => (
@@ -19,9 +13,10 @@ const SpecItem = ({ label, value }: { label: string; value: string | number }) =
   </div>
 );
 
-const CarDetails = ({ carId, onBack }: CarDetailsProps) => {
+const CarDetails = () => {
+  const { carId } = useParams<{ carId: string }>();
   // Trouver la voiture par son ID
-  const car = cars.find(c => c.id === carId);
+  const car = cars.find(c => c.id === Number(carId));
 
   // Gérer le cas où la voiture n'est pas trouvée
   if (!car) {
@@ -31,12 +26,12 @@ const CarDetails = ({ carId, onBack }: CarDetailsProps) => {
         <div className="container mx-auto px-4 py-16 text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Véhicule non trouvé</h1>
           <p className="text-gray-500 mb-8">L'identifiant de la voiture est invalide ou la voiture n'existe plus.</p>
-          <button 
-            onClick={onBack}
-            className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition"
+          <Link 
+            to="/stock"
+            className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition"
           >
             Retour à la liste
-          </button>
+          </Link>
         </div>
       </div>
     );
@@ -63,12 +58,12 @@ const CarDetails = ({ carId, onBack }: CarDetailsProps) => {
         
         {/* Header et Bouton Retour */}
         <div className="mb-8 flex flex-col md:flex-row md:items-center gap-6">
-          <button
-            onClick={onBack}
+          <Link
+            to="/stock"
             className="cursor-pointer self-start px-5 py-2 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition flex items-center gap-2 group"
           >
             <span className="group-hover:-translate-x-1 transition-transform">←</span> Retour
-          </button>
+          </Link>
 
           <div>
             <h1 className="text-4xl font-extrabold text-white">{car.make} {car.model}</h1>
