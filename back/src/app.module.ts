@@ -8,6 +8,7 @@ import { Car } from './infrastructure/entities/car.entity';
 import { Stats } from './infrastructure/entities/stats.entity';
 import { Announcement } from './infrastructure/entities/announcement.entity';
 import { UsersModule } from './modules/users/users.module';
+import { StatsModule } from './modules/stats/stats.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { UsersModule } from './modules/users/users.module';
       inject: [ConfigService],
     }),
     UsersModule,
+    StatsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
