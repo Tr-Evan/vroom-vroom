@@ -10,6 +10,7 @@ import { Announcement } from './infrastructure/entities/announcement.entity';
 import { UsersModule } from './modules/users/users.module';
 import { StatsModule } from './modules/stats/stats.module';
 import { AnnouncementsModule } from './modules/announcements/announcements.module';
+import { CarsModule } from './modules/cars/cars.module';
 
 @Module({
   imports: [
@@ -27,13 +28,14 @@ import { AnnouncementsModule } from './modules/announcements/announcements.modul
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_DATABASE'),
         entities: [User, Car, Stats, Announcement],
-        synchronize: false, // Mettre à true seulement en développement
+        synchronize: false,
         logging: true,
       }),
       inject: [ConfigService],
     }),
     UsersModule,
     StatsModule,
+    CarsModule,
     AnnouncementsModule
   ],
   controllers: [AppController],

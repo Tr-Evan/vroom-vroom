@@ -12,15 +12,12 @@ export class StatsService {
   ) {}
 
   async findAll(): Promise<Stats[]> {
-    return this.carsRepo.find({
-      relations: ['user', 'stats', 'announcements'],
-    });
+    return this.carsRepo.find();
   }
 
   async findById(id: number): Promise<Stats | null> {
     return this.carsRepo.findOne({
       where: { id },
-      relations: ['user', 'stats', 'announcements'],
     });
   }
 
