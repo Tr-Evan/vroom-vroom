@@ -7,6 +7,7 @@ import { User } from './infrastructure/entities/user.entity';
 import { Car } from './infrastructure/entities/car.entity';
 import { Stats } from './infrastructure/entities/stats.entity';
 import { Announcement } from './infrastructure/entities/announcement.entity';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { Announcement } from './infrastructure/entities/announcement.entity';
       synchronize: false,
       logging: true,
     }),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
