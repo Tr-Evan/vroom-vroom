@@ -41,7 +41,7 @@ export default function Hero({ onViewVehicles }: Props) {
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <button
               onClick={onViewVehicles}
-              className="px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300"
+              className="cursor-pointer px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300"
             >
               Voir nos véhicules
             </button>
