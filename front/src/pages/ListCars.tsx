@@ -54,6 +54,7 @@ const MOCK_IMAGES = [
   "https://images.unsplash.com/photo-1627454820574-fb6aa50085a0?q=80&w=800&auto=format&fit=crop"
 ];
 
+// Typage des props pour le bouton retour
 const ListCars = () => {
   const [cars, setCars] = useState<CarUI[]>([]);
   const [loading, setLoading] = useState(true);
