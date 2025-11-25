@@ -9,6 +9,7 @@ import { Stats } from './infrastructure/entities/stats.entity';
 import { Announcement } from './infrastructure/entities/announcement.entity';
 import { UsersModule } from './modules/users/users.module';
 import { StatsModule } from './modules/stats/stats.module';
+import { AnnouncementsModule } from './modules/announcements/announcements.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { StatsModule } from './modules/stats/stats.module';
     }),
     UsersModule,
     StatsModule,
+    AnnouncementsModule
   ],
   controllers: [AppController],
   providers: [AppService],
