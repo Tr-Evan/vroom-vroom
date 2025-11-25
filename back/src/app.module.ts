@@ -8,6 +8,7 @@ import { Car } from './infrastructure/entities/car.entity';
 import { Stats } from './infrastructure/entities/stats.entity';
 import { Announcement } from './infrastructure/entities/announcement.entity';
 import { UsersModule } from './modules/users/users.module';
+import { StatsModule } from './modules/stats/stats.module';
 import { AnnouncementsModule } from './modules/announcements/announcements.module';
 
 @Module({
@@ -32,6 +33,7 @@ import { AnnouncementsModule } from './modules/announcements/announcements.modul
       inject: [ConfigService],
     }),
     UsersModule,
+    StatsModule,
     AnnouncementsModule
   ],
   controllers: [AppController],
