@@ -1,16 +1,19 @@
 import DarkVeil from './DarkVeil.tsx';
-import CarViewer from './CarViewer'
+import CarViewer from './CarViewer';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   onViewVehicles?: () => void;
 };
 
 export default function Hero({ onViewVehicles }: Props) {
+  const navigate = useNavigate();
+
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center px-6 py-32">
       {/* DarkVeil en fond absolu plein écran */}
       <div className="absolute inset-0 z-0">
-        <DarkVeil />
+        <DarkVeil resolutionScale={0.2} />
       </div>
 
       {/* Contenu relatif au-dessus (large) */}
@@ -40,7 +43,7 @@ export default function Hero({ onViewVehicles }: Props) {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <button
-              onClick={onViewVehicles}
+              onClick={() => navigate('/stock')}
               className="cursor-pointer px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300"
             >
               Voir nos véhicules
@@ -62,7 +65,7 @@ export default function Hero({ onViewVehicles }: Props) {
       {/* Viewer absolu au-dessus de tout pour permettre au modèle de déborder
           - z-60 pour être au-dessus de la navbar (qui est z-50) */}
       <div className="pointer-events-auto absolute top-1/2 right-0 transform -translate-y-1/2 z-60 w-[60%] h-screen max-w-[1100px]">
-        <CarViewer modelUrl="/models/mycar/bugatti-divo/source/2019_bugatti_divo_110_ans.glb" />
+        {/* <CarViewer modelUrl="/models/mycar/bugatti-divo/source/2019_bugatti_divo_110_ans.glb" /> */}
       </div>
     </section>
   );
