@@ -5,12 +5,13 @@ import { cars } from '../data/cars';
 // Typage des props pour le bouton retour
 type ListCarsProps = {
   onBack: () => void;
+  onSelectCar?: (id: number) => void;
 };
 
-const ListCars = ({ onBack }: ListCarsProps) => {
+const ListCars = ({ onBack, onSelectCar }: ListCarsProps) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Tout');
-  const [maxPrice, setMaxPrice] = useState(1000000); // Budget augmenté pour la démo
+  const [maxPrice, setMaxPrice] = useState(1000000);
 
   // Filtrage
   const filteredCars = cars.filter((car) => {
@@ -160,7 +161,10 @@ const ListCars = ({ onBack }: ListCarsProps) => {
                         <span className="text-xl font-bold text-white">
                             {car.price.toLocaleString()} <span className="text-violet-400">€</span>
                         </span>
-                        <button className="cursor-pointer px-4 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-violet-400 hover:text-white transition-all duration-300">
+                        <button
+                          onClick={() => onSelectCar && onSelectCar(car.id)}
+                          className="cursor-pointer px-4 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-violet-400 hover:text-white transition-all duration-300"
+                        >
                             Voir détails
                         </button>
                       </div>
