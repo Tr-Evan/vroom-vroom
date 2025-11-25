@@ -1,10 +1,10 @@
 export default function Navbar() {
   return (
-    <nav className="fixed top-6 left-0 right-0 z-50 px-6">
-      <div className="max-w-7xl mx-auto px-6 py-4 rounded-full backdrop-blur-xl bg-black/40 border border-white/10 shadow-2xl flex items-center justify-between">
+    <nav className="fixed top-6 left-0 right-0 z-50">
+      <div className="w-full max-w-screen-2xl mx-auto px-8 py-4 rounded-full backdrop-blur-xl bg-black/40 border border-white/10 shadow-2xl flex items-center justify-between">
         {/* Logo */}
         <div className="text-2xl font-bold text-white tracking-wider">
-          <span className="text-violet-400">⚙</span> Vroom-Vroom
+          <span className="text-violet-400"></span> Vroom-Vroom
         </div>
 
         {/* Menu */}
