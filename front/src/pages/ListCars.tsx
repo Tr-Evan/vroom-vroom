@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { cars } from '../data/cars';
+import { Link } from 'react-router-dom';
 
-// Typage des props pour le bouton retour
-type ListCarsProps = {
-  onBack: () => void;
-};
-
-const ListCars = ({ onBack }: ListCarsProps) => {
+const ListCars = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Tout');
-  const [maxPrice, setMaxPrice] = useState(1000000); // Budget augmenté pour la démo
+  const [maxPrice, setMaxPrice] = useState(1000000);
 
   // Filtrage
   const filteredCars = cars.filter((car) => {
@@ -22,21 +18,21 @@ const ListCars = ({ onBack }: ListCarsProps) => {
 
   const categories = ['Tout', ...new Set(cars.map(c => c.category))];
 
-  return (
-    // Fond noir et texte blanc
+return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-violet-500 selection:text-white">
       <Navbar />
 
-      <div className="container mx-auto px-4 pt-28">
+      {/* Ajout du padding-top pour compenser la navbar fixed */}
+      <div className="container mx-auto px-4 pt-32 pb-12">
         
-        {/* Header avec bouton Retour */}
+        {/* Header avec bouton Retour via Link */}
         <div className="mb-8 flex flex-col md:flex-row md:items-center gap-6">
-          <button 
-            onClick={onBack}
-            className="cursor-pointer self-start px-5 py-2 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition flex items-center gap-2 group"
+          <Link 
+            to="/"
+            className="self-start px-5 py-2 rounded-full border border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition flex items-center gap-2 group"
           >
             <span className="group-hover:-translate-x-1 transition-transform">←</span> Retour
-          </button>
+          </Link>
 
           <div>
             <h1 className="text-3xl font-bold text-white">Nos Véhicules</h1>
