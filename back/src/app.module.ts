@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User } from './infrastructure/entities/user.entity';
@@ -12,18 +12,31 @@ import { StatsModule } from './modules/stats/stats.module';
 import { AnnouncementsModule } from './modules/announcements/announcements.module';
 import { CarsModule } from './modules/cars/cars.module';
 
-import typeOrmConfig from './config/typeorm.config';
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
     }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        type: 'mysql',
+        host: configService.get<string>('DB_HOST'),
+        port: configService.get<number>('DB_PORT'),
+        username: configService.get<string>('DB_USERNAME'),
+        password: configService.get<string>('DB_PASSWORD'),
+        database: configService.get<string>('DB_DATABASE'),
+        entities: [User, Car, Stats, Announcement],
+        synchronize: false,
+        logging: true,
+      }),
+      inject: [ConfigService],
+    }),
     UsersModule,
     StatsModule,
     CarsModule,
     AnnouncementsModule,
-    TypeOrmModule.forRoot(typeOrmConfig),
   ],
   controllers: [AppController],
   providers: [AppService],
