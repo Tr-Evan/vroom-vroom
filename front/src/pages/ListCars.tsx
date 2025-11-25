@@ -8,6 +8,7 @@ interface AnnouncementFromDB {
   stats_id: number;
   date: string;
   famous: boolean;
+  imageUrl: string;
 
   car: {
     id: number;
@@ -45,14 +46,6 @@ interface CarUI {
   views: number;
 }
 
-const MOCK_IMAGES = [
-  "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1620592750346-6467be569947?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1627454820574-fb6aa50085a0?q=80&w=800&auto=format&fit=crop"
-];
 
 // Typage des props pour le bouton retour
 const ListCars = () => {
@@ -89,9 +82,9 @@ const ListCars = () => {
                 perf: item.car.perf,
                 year: year,
                 views: item.stats?.views || 0,
+                image: item.imageUrl,
                 
                 // Données Fakes (Simulation)
-                image: MOCK_IMAGES[index % MOCK_IMAGES.length], 
                 price: Math.floor(Math.random() * (150000 - 30000) + 30000), 
                 mileage: Math.floor(Math.random() * 50000) + 1000,
                 fuel: ["Essence", "Hybride", "Électrique"][Math.floor(Math.random() * 3)],
