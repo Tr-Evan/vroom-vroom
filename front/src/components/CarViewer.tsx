@@ -29,22 +29,40 @@ export default function CarViewer({ modelUrl = '/models/car.glb', autoRotate = t
 		scene.background = null
 
 		const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000)
-		camera.position.set(0, 1.2, 3)
+		camera.position.set(0.9, 0.5, 0.9)
 
-		const hemi = new THREE.HemisphereLight(0xffffff, 0x444444, 0.6)
-		hemi.position.set(0, 1, 0)
+		// Lumière ambiante
+		const ambient = new THREE.AmbientLight(0xffffff, 0.7)
+		scene.add(ambient)
+
+		// Lumière hémisphérique
+		const hemi = new THREE.HemisphereLight(0xffffff, 0x1a1a2e, 0.5)
+		hemi.position.set(0, 10, 0)
 		scene.add(hemi)
 
-		const dir = new THREE.DirectionalLight(0xffffff, 1.0)
-		dir.position.set(5, 10, 7.5)
+		// Lumière directionnelle principale (de face-haut-gauche)
+		const dir = new THREE.DirectionalLight(0xffffff, 1.2)
+		dir.position.set(8, 12, 6)
 		scene.add(dir)
+
+		// Lumière d'accentuation (fill light de droite - violet)
+		const fill = new THREE.DirectionalLight(0x6366f1, 0.6)
+		fill.position.set(-5, 8, -3)
+		scene.add(fill)
+
+		// Lumière de rebond (subtile, par le bas)
+		const bounce = new THREE.PointLight(0xffffff, 0.3)
+		bounce.position.set(0, -2, 0)
+		scene.add(bounce)
 
 		const controls = new OrbitControls(camera, renderer.domElement)
 		controls.enableDamping = true
-		controls.autoRotate = !!autoRotate
-		controls.autoRotateSpeed = 0.6
+		controls.dampingFactor = 0.08
+		controls.autoRotate = false
 		controls.enablePan = false
-		controls.maxPolarAngle = Math.PI / 2.2
+		controls.maxPolarAngle = Math.PI / 1.8
+		controls.minPolarAngle = Math.PI / 3.5
+		controls.minDistance = 2.5
 
 		const loader = new GLTFLoader()
 		let currentModel: THREE.Object3D | null = null
