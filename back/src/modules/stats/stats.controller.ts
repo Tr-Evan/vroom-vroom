@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { StatsService } from './stats.service';
-import { CreateStatsDto, UpdateStatsDto } from './stats.types';
+import { CreateStatsDto, UpdateStatsDto } from './stats.type';
 
 @Controller('stats')
 export class StatsController {

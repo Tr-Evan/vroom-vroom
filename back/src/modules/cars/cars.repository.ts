@@ -27,9 +27,7 @@ export class CarsRepository {
   }
 
   async findAll(): Promise<CarModel[]> {
-    const entities = await this.repo.find({
-      relations: ['user', 'stats', 'announcements'],
-    });
+    const entities = await this.repo.find();
 
     return entities.map(e => this.toModel(e));
   }
