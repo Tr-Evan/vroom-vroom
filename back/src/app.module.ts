@@ -36,7 +36,7 @@ import { CarsModule } from './modules/cars/cars.module';
     UsersModule,
     StatsModule,
     CarsModule,
-    AnnouncementsModule
+    AnnouncementsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

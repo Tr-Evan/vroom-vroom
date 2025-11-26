@@ -73,3 +73,15 @@ INSERT INTO announcement (cars_id, stats_id, date, famous) VALUES
 (1, 1, '2024-01-15', TRUE),
 (2, 2, '2024-02-20', TRUE),
 (3, 3, '2024-03-10', FALSE);
+
+ALTER TABLE announcement
+ADD COLUMN imageUrl VARCHAR(255) NOT NULL AFTER date;
+
+ALTER TABLE announcement
+ADD COLUMN imageUrl VARCHAR(255) NOT NULL AFTER date;
+UPDATE announcement
+SET imageUrl = 'https://unsplash.com/photos/silver-mercedes-benz-coupe-on-road-during-daytime-dlqYkIlDa3k' WHERE id = 1
+UPDATE announcement
+SET imageUrl = 'https://unsplash.com/photos/black-porsche-911-on-road-during-sunset-49gi04Retc4' WHERE id = 2
+UPDATE announcement
+SET imageUrl = 'https://unsplash.com/photos/black-ford-mustang-coupe-parked-near-green-tree-eDXRq-2LfNM' WHERE id = 3

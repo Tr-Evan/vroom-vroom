@@ -16,6 +16,9 @@ export class Announcement {
   @Column({ type: 'date' })
   date: Date;
 
+  @Column()
+  imageUrl: string;
+
   @Column({ default: false })
   famous: boolean;
 
