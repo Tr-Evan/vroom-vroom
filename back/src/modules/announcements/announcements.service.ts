@@ -3,37 +3,32 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Announcement } from 'src/infrastructure/entities/announcement.entity';
 import { Repository } from 'typeorm';
 import { CreateAnnouncementDto, UpdateAnnouncementDto } from './announcements.types';
+import { AnnouncementsRepository } from './announcements.repository';
+import { AnnouncementModel } from './announcements.model';
 
 @Injectable()
 export class AnnouncementsService {
   constructor(
-    @InjectRepository(Announcement)
-    private readonly announcementRepo: Repository<Announcement>,
+    private readonly announcementRepo: AnnouncementsRepository,
   ) {}
 
-  getAllAnnouncements(): Promise<Announcement[]> {
-    return this.announcementRepo.find({
-      relations: ['car', 'stats'], 
-    });
+  async getAllAnnouncements(): Promise<AnnouncementModel[]> {
+    return await this.announcementRepo.findAll();
   }
 
-  getAnnouncementById(id: number): Promise<Announcement | null> {
-    return this.announcementRepo.findOne({
-      where: { id },
-      relations: ['car', 'stats'],
-    });
-  }
-  async createAnnouncement(data: CreateAnnouncementDto): Promise<Announcement> {
-    const announcement = this.announcementRepo.create(data);
-    return this.announcementRepo.save(announcement);
+  async getAnnouncementById(id: number): Promise<AnnouncementModel | null> {
+    return await this.announcementRepo.findById(id);
   }
 
-  async updateAnnouncement(id: number, data: UpdateAnnouncementDto): Promise<Announcement | null> {
-    await this.announcementRepo.update(id, data);
-    return this.getAnnouncementById(id);
+  async createAnnouncement(data: CreateAnnouncementDto): Promise<AnnouncementModel> {
+    return await this.announcementRepo.create(data);
+  }
+
+  async updateAnnouncement(id: number, data: UpdateAnnouncementDto): Promise<AnnouncementModel | null> {
+    return await this.announcementRepo.update(id, data);
   }
 
   async deleteAnnouncement(id: number): Promise<void> {
-    await this.announcementRepo.delete(id);
+    return await this.announcementRepo.delete(id);
   }
 }

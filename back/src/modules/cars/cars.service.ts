@@ -17,22 +17,22 @@ export class CarsService {
   }
 
   async findById(id: number): Promise<CarModel | null> {
-    return this.carsRepo.findById(id)
+    return await this.carsRepo.findById(id)
   }
 
   async findByUserId(userId: number): Promise<CarModel[]> {
-    return this.carsRepo.findByUserId(userId);
+    return await this.carsRepo.findByUserId(userId);
   }
 
   async create(data: CreateCarDto): Promise<CarModel> {
-    return this.carsRepo.create(data);
+    return await this.carsRepo.create(data);
   }
 
   async update(id: number, data: UpdateCarDto): Promise<CarModel | null> {
-    return this.carsRepo.update(id, data);
+    return await this.carsRepo.update(id, data);
   }
 
   async delete(id: number): Promise<void> {
-    return this.carsRepo.delete(id);
+    return await this.carsRepo.delete(id);
   }
 }
