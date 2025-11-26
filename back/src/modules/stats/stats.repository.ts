@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { StatsModel } from "src/modules/stats/stats.model";
+import { StatsModel } from "../../modules/stats/stats.model";
 import { Repository } from "typeorm";
 import { CreateStatsDto, UpdateStatsDto } from "./stats.type";
-import { Stats } from "src/infrastructure/entities/stats.entity";
+import { Stats } from "../../infrastructure/entities/stats.entity";
 
 @Injectable()
 export class StatsRepository {
