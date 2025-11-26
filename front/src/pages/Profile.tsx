@@ -22,7 +22,7 @@ const Profile = () => {
 
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 relative z-10">
             {/* Avatar */}
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-600 p-1 shadow-2xl shadow-violet-500/20">
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-sky-500 to-blue-600 p-1 shadow-2xl shadow-violet-500/20">
               <img 
                 src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&auto=format&fit=crop" 
                 alt="Profile" 
@@ -32,7 +32,7 @@ const Profile = () => {
             {/* Infos */}
             <div className="flex-1 text-center md:text-left">
               <h1 className="text-3xl font-bold text-white mb-2">Jean Dupont</h1>
-              <p className="text-violet-400 font-medium mb-4">Membre Society Club • VIP</p>
+              <p className="text-sky-400 font-medium mb-4">Membre Society Club • VIP</p>
               {/* ... Contenu statique du profil ... */}
               <div className="flex gap-3 justify-center md:justify-start mt-4">
                 <button className="px-6 py-2 bg-white text-black font-bold rounded-full cursor-pointer hover:bg-gray-200 transition">Éditer</button>

@@ -1,6 +1,5 @@
 import DarkVeil from './DarkVeil.tsx';
 import { useNavigate } from 'react-router-dom';
-import CarViewer from './CarViewer.tsx';
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -9,7 +8,7 @@ export default function Hero() {
     <section className="relative w-full min-h-screen flex items-center justify-center px-6 py-32">
       {/* DarkVeil en fond absolu plein écran */}
       <div className="absolute inset-0 z-0">
-        <DarkVeil resolutionScale={0.2} />
+        <DarkVeil resolutionScale={0.2} hueShift={31} speed={1.1} />
       </div>
 
       {/* Contenu relatif au-dessus (large) */}
@@ -30,7 +29,7 @@ export default function Hero() {
             <span className="relative inline-block">
               <span className="relative z-10 text-white">sur-mesure</span>
             </span>
-            {' '}by <span className="text-violet-400">Vroom-Vroom</span>
+            {' '}by <span className="text-sky-500">Vroom-Vroom</span>
           </h1>
 
           {/* Ligne de séparation */}
@@ -44,7 +43,7 @@ export default function Hero() {
             >
               Voir nos véhicules
             </button>
-            <button className="px-8 py-3 border border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors duration-300">
+            <button onClick={() => navigate('/services')} className="cursor-pointer px-8 py-3 border border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors duration-300">
               En savoir plus
             </button>
           </div>
@@ -61,7 +60,12 @@ export default function Hero() {
       {/* Viewer absolu au-dessus de tout pour permettre au modèle de déborder
           - z-60 pour être au-dessus de la navbar (qui est z-50) */}
       <div className="pointer-events-auto absolute top-1/2 right-0 transform -translate-y-1/2 z-60 w-[60%] h-screen max-w-[1100px]">
-        <CarViewer modelUrl="/models/mycar/bugatti-divo/source/2019_bugatti_divo_110_ans.glb" />
+        {/* <CarViewer modelUrl="/models/mycar/bugatti-divo/source/2019_bugatti_divo_110_ans.glb" /> */}
+        <img 
+          src="../../public/hero-img.png" 
+          alt="Ombre de la voiture" 
+          className="pointer-events-none absolute bottom-40 left-1/2 transform -translate-x-1/2 w-[80%]"
+        />
       </div>
     </section>
   );

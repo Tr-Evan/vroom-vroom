@@ -95,14 +95,26 @@ export default function DarkVeil({
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = ref.current as HTMLCanvasElement;
-    const parent = canvas.parentElement as HTMLElement;
+      const parent = canvas.parentElement as HTMLElement;
 
-    const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
-      canvas
-    });
+      // Ensure canvas fills parent and doesn't capture pointer events
+      if (canvas) {
+        canvas.style.position = 'absolute';
+        canvas.style.inset = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.display = 'block';
+      }
 
-    const gl = renderer.gl;
+      const renderer = new Renderer({
+        dpr: Math.min(window.devicePixelRatio, 2),
+        canvas
+      });
+
+      const gl = renderer.gl;
+      // make canvas background transparent so shader output is visible over page background
+      gl.clearColor(0, 0, 0, 0);
     const geometry = new Triangle(gl);
 
     const program = new Program(gl, {
@@ -124,7 +136,8 @@ export default function DarkVeil({
     const resize = () => {
       const w = parent.clientWidth,
         h = parent.clientHeight;
-      renderer.setSize(w * resolutionScale, h * resolutionScale);
+      // Use actual parent size for renderer; dpr already handled by Renderer
+      renderer.setSize(w, h);
       program.uniforms.uResolution.value.set(w, h);
     };
 

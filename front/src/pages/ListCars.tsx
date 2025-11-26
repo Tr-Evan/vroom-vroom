@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface AnnouncementFromDB {
   id: number;
@@ -56,6 +56,7 @@ const MOCK_IMAGES = [
 
 // Typage des props pour le bouton retour
 const ListCars = () => {
+  const navigate = useNavigate();
   const [cars, setCars] = useState<CarUI[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -124,12 +125,12 @@ const ListCars = () => {
 
   if (loading) return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-violet-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-violet-500 selection:text-white">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-blue-500 selection:text-white">
       <Navbar />
 
       <div className="container mx-auto px-4 pt-32 pb-12">
@@ -160,7 +161,7 @@ const ListCars = () => {
             
             {/* SIDEBAR FILTRES */}
             <aside className="w-full lg:w-1/4 h-fit bg-zinc-900/80 backdrop-blur-md p-6 rounded-2xl border border-white/10 sticky top-32">
-                <h2 className="text-xl font-semibold mb-6 text-violet-400 flex items-center gap-2">
+                <h2 className="text-xl font-semibold mb-6 text-blue-500 flex items-center gap-2">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
                     Filtres
                 </h2>
@@ -170,7 +171,7 @@ const ListCars = () => {
                     <input 
                         type="text" 
                         placeholder="Ex: Porsche..." 
-                        className="w-full p-3 bg-black/50 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:ring-2 focus:ring-violet-500 outline-none transition"
+                        className="w-full p-3 bg-black/50 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:ring-2 focus:ring-blue-500 outline-none transition"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -179,7 +180,7 @@ const ListCars = () => {
                 <div className="mb-6">
                     <label className="block text-sm font-medium text-gray-400 mb-2">Catégorie</label>
                     <select 
-                        className="w-full p-3 bg-black/50 border border-white/10 rounded-xl text-white outline-none focus:border-violet-500 cursor-pointer"
+                        className="w-full p-3 bg-black/50 border border-white/10 rounded-xl text-white outline-none focus:border-blue-500 cursor-pointer"
                         value={selectedCategory}
                         onChange={(e) => setSelectedCategory(e.target.value)}
                     >
@@ -192,14 +193,14 @@ const ListCars = () => {
                 <div className="mb-8">
                     <div className="flex justify-between mb-2">
                         <label className="text-sm font-medium text-gray-400">Budget Max</label>
-                        <span className="text-sm text-violet-400 font-bold">{maxPrice.toLocaleString()} €</span>
+                        <span className="text-sm text-blue-500 font-bold">{maxPrice.toLocaleString()} €</span>
                     </div>
                     <input 
                         type="range" 
                         min="20000" 
                         max="200000" 
                         step="5000"
-                        className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-violet-500"
+                        className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
                         value={maxPrice}
                         onChange={(e) => setMaxPrice(Number(e.target.value))}
                     />
@@ -211,7 +212,7 @@ const ListCars = () => {
                 {filteredCars.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {filteredCars.map((car) => (
-                    <div key={car.id} className="bg-zinc-900 rounded-2xl border border-white/5 overflow-hidden hover:border-violet-500/50 hover:shadow-[0_0_30px_rgba(124,58,237,0.1)] transition-all duration-300 group">
+                    <div key={car.id} className="bg-zinc-900 rounded-2xl border border-white/5 overflow-hidden hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] transition-all duration-300 group">
                         
                         {/* Image + Badges */}
                         <div className="relative h-48 overflow-hidden">
@@ -224,7 +225,7 @@ const ListCars = () => {
                                 {car.year}
                             </div>
                             {/* Affichage de la puissance réelle */}
-                            <div className="absolute bottom-3 right-3 bg-violet-600/90 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-white border border-white/10">
+                            <div className="absolute bottom-3 right-3 bg-blue-600/90 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-white border border-white/10">
                                 {car.perf}
                             </div>
                         </div>
@@ -251,9 +252,12 @@ const ListCars = () => {
 
                             <div className="flex items-center justify-between pt-4 border-t border-white/5">
                                 <span className="text-xl font-bold text-white">
-                                    {car.price.toLocaleString()} <span className="text-violet-400">€</span>
+                                    {car.price.toLocaleString()} <span className="text-blue-500">€</span>
                                 </span>
-                                <button className="cursor-pointer px-4 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-violet-400 hover:text-white transition-all duration-300">
+                                <button
+                                  onClick={() => navigate(`/stock/${car.id}`)}
+                                  className="cursor-pointer px-4 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300"
+                                >
                                     Voir détails
                                 </button>
                             </div>

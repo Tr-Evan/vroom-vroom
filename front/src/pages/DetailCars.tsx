@@ -133,15 +133,15 @@ const CarDetails = () => {
               {/* Carte de Prix (sombre) */}
               <div className="bg-zinc-900/80 p-6 rounded-2xl shadow-xl border border-white/5 mb-6 text-gray-200">
                 <p className="text-2xl font-semibold text-gray-300 mb-2">Prix de vente</p>
-                <span className="text-5xl font-extrabold text-violet-400">
+                <span className="text-5xl font-extrabold text-blue-500">
                   {car.price.toLocaleString()} €
                 </span>
                 <p className="text-sm text-gray-400 mt-2">TVA incluse, hors frais d'immatriculation.</p>
               
-                <button className="w-full mt-6 py-3 bg-violet-500 text-white font-bold rounded-lg shadow-lg hover:bg-violet-600 transition transform hover:scale-[1.01]">
+                <button className="w-full mt-6 py-3 bg-blue-500 text-white font-bold rounded-lg shadow-lg hover:bg-blue-600 transition transform hover:scale-[1.01]">
                   Contacter le vendeur
                 </button>
-                <button className="w-full mt-3 py-3 bg-white/5 text-violet-400 border border-white/5 font-medium rounded-lg hover:bg-white/10 transition">
+                <button className="w-full mt-3 py-3 bg-white/5 text-blue-500 border border-white/5 font-medium rounded-lg hover:bg-white/10 transition">
                   Demander un essai
                 </button>
               </div>
