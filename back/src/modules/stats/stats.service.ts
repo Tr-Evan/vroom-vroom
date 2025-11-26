@@ -3,35 +3,32 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Stats } from '../../infrastructure/entities/stats.entity';
 import { CreateStatsDto, UpdateStatsDto } from './stats.type';
+import { StatsRepository } from './stats.repository';
+import { StatsModel } from './stats.model';
 
 @Injectable()
 export class StatsService {
   constructor(
-    @InjectRepository(Stats)
-    private readonly carsRepo: Repository<Stats>,
+    private readonly statsRepo: StatsRepository,
   ) {}
 
-  async findAll(): Promise<Stats[]> {
-    return this.carsRepo.find();
+  async findAll(): Promise<StatsModel[]> {
+    return await this.statsRepo.findAll();
   }
 
-  async findById(id: number): Promise<Stats | null> {
-    return this.carsRepo.findOne({
-      where: { id },
-    });
+  async findById(id: number): Promise<StatsModel | null> {
+    return await this.statsRepo.findById(id);
   }
 
-  async create(data: CreateStatsDto): Promise<Stats> {
-    const car = this.carsRepo.create(data);
-    return this.carsRepo.save(car);
+  async create(data: CreateStatsDto): Promise<StatsModel> {
+    return await this.statsRepo.create(data);
   }
 
-  async update(id: number, data: UpdateStatsDto): Promise<Stats | null> {
-    await this.carsRepo.update(id, data);
-    return this.findById(id);
+  async update(id: number, data: UpdateStatsDto): Promise<StatsModel | null> {
+    return await this.statsRepo.create(data);
   }
 
   async delete(id: number): Promise<void> {
-    await this.carsRepo.delete(id);
+    return await this.statsRepo.delete(id);
   }
 }

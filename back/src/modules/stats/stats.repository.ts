@@ -21,9 +21,7 @@ export class StatsRepository {
   }
 
   async findAll(): Promise<StatsModel[]> {
-    const entities = await this.repo.find({
-      relations: ['user', 'stats', 'announcements'],
-    });
+    const entities = await this.repo.find();
 
     return entities.map(e => this.toModel(e));
   }
@@ -31,6 +29,7 @@ export class StatsRepository {
   async findById(id: number): Promise<StatsModel | null> {
     const entity = await this.repo.findOne({
       where: { id },
+      relations: ['stats', 'announcements'],
     });
 
     return entity ? this.toModel(entity) : null;
