@@ -3,7 +3,23 @@
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import CarViewer from '../components/CarViewer';
-import { cars } from '../data/cars';
+import { useEffect, useState } from 'react';
+
+// Typage local pour l'UI (simple et compatible avec l'existant)
+interface CarUI {
+  id: number;
+  make: string;
+  model: string;
+  year: number;
+  perf?: string;
+  price: number;
+  mileage: number;
+  fuel: string;
+  transmission: string;
+  image: string;
+  category: string;
+  views?: number;
+}
 
 // Composant utilitaire pour les lignes de la fiche technique (thème sombre)
 const SpecItem = ({ label, value }: { label: string; value: string | number }) => (
@@ -15,17 +31,74 @@ const SpecItem = ({ label, value }: { label: string; value: string | number }) =
 
 const CarDetails = () => {
   const { carId } = useParams<{ carId: string }>();
-  // Trouver la voiture par son ID
-  const car = cars.find(c => c.id === Number(carId));
 
-  // Gérer le cas où la voiture n'est pas trouvée
+  const [car, setCar] = useState<CarUI | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!carId) return;
+
+    const fetchDetail = async () => {
+      setLoading(true);
+      setError(null);
+
+      try {
+        // On suppose que l'API expose /announcements/:id comme dans la liste
+        const res = await fetch(`http://localhost:3000/announcements/${carId}`);
+        if (!res.ok) {
+          if (res.status === 404) throw new Error('Véhicule introuvable');
+          throw new Error('Erreur réseau');
+        }
+
+        const data = await res.json();
+
+        // Mapping pragmatique — rend le shape compatible avec l'UI existante
+        const year = data.date ? new Date(data.date).getFullYear() : (data.car?.created_at ? new Date(data.car.created_at).getFullYear() : 2025);
+
+        const mapped: CarUI = {
+          id: data.id,
+          make: data.car?.marque || data.car?.make || 'Inconnu',
+          model: data.car?.model || 'Modèle',
+          year,
+          perf: data.car?.perf || '',
+          views: data.stats?.views || 0,
+          image: data.imageUrl || data.car?.image || '',
+          price: data.price || Math.floor(Math.random() * (150000 - 30000) + 30000),
+          mileage: data.car?.mileage || Math.floor(Math.random() * 50000) + 1000,
+          fuel: data.car?.fuel || ['Essence', 'Hybride', 'Électrique'][Math.floor(Math.random() * 3)],
+          transmission: data.car?.transmission || 'Automatique',
+          category: data.car?.category || ['Sportive', 'SUV', 'Berline', 'GT'][Math.floor(Math.random() * 4)],
+        };
+
+        setCar(mapped);
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        console.error('Erreur fetch détail:', err);
+        setError(msg || 'Impossible de charger la fiche véhicule.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDetail();
+  }, [carId]);
+
+  // Gestion du chargement
+  if (loading) return (
+    <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+    </div>
+  );
+
+  // Erreur ou non trouvé
   if (!car) {
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
         <Navbar />
         <div className="container mx-auto px-4 py-16 text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">Véhicule non trouvé</h1>
-          <p className="text-gray-500 mb-8">L'identifiant de la voiture est invalide ou la voiture n'existe plus.</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">{error ? 'Erreur' : 'Véhicule non trouvé'}</h1>
+          <p className="text-gray-500 mb-8">{error ?? "L'identifiant de la voiture est invalide ou la voiture n'existe plus."}</p>
           <Link 
             to="/stock"
             className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition"
