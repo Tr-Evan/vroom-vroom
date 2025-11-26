@@ -2,7 +2,6 @@
 
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import CarViewer from '../components/CarViewer';
 import { useEffect, useState } from 'react';
 
 // Typage local pour l'UI (simple et compatible avec l'existant)
@@ -119,10 +118,6 @@ const CarDetails = () => {
     Ne manquez pas cette opportunité unique de posséder ce modèle de catégorie ${car.category}.
   `;
 
-  // Chemin du modèle 3D pour la Bugatti (ID 6)
-  const bugattiModelPath = '/models/mycar/bugatti-divo/source/2019_bugatti_divo_110_ans.glb';
-  const isBugatti = car.id === 6;
-
   return (
     <div className="min-h-screen bg-black font-sans">
       <Navbar />
@@ -149,24 +144,13 @@ const CarDetails = () => {
           {/* Colonne Principale (Image/Viewer & Description/Fiche Technique) */}
           <main className="w-full lg:w-2/3">
             
-            {/* Zone d'Image ou Viewer 3D (carte sombre) */}
+            {/* Zone d'Image (carte sombre) */}
             <div className="bg-zinc-900/80 rounded-2xl shadow-xl border border-white/5 overflow-hidden mb-8">
-              {isBugatti ? (
-                // Utilisation du CarViewer pour le modèle 3D
-                <div className="relative h-[480px]">
-                    <CarViewer modelUrl={bugattiModelPath} autoRotate={true} />
-                    <div className="absolute bottom-4 left-4 bg-gray-900/70 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
-                        Vue 3D Interactive
-                    </div>
-                </div>
-              ) : (
-                // Image classique pour les autres voitures
-                <img 
-                  src={car.image} 
-                  alt={`${car.make} ${car.model}`} 
-                  className="w-full object-cover max-h-[480px] h-auto"
-                />
-              )}
+              <img 
+                src={car.image} 
+                alt={`${car.make} ${car.model}`} 
+                className="w-full object-cover max-h-[480px] h-auto"
+              />
             </div>
 
             {/* Section Description (sombre) */}
