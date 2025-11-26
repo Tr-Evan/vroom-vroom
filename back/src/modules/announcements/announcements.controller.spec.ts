@@ -1,25 +1,42 @@
+import { Test, TestingModule } from "@nestjs/testing";
 import { AnnouncementsController } from "./announcements.controller";
 import { AnnouncementModel } from "./announcements.model";
+import { AnnouncementsRepository } from "./announcements.repository";
 import { AnnouncementsService } from "./announcements.service";
 import { CreateAnnouncementDto, UpdateAnnouncementDto } from "./announcements.types";
 
-const mockAnnouncementsRepository = () => ({
-  findAll: jest.fn(),
-  findById: jest.fn(),
-  create: jest.fn(),
-  update: jest.fn(),
-  delete: jest.fn(),
-});
-
-describe('AnnouncementsController', () => {
+describe('AnnouncementsController ', () => {
   let announcementsController: AnnouncementsController;
-  let announcementsService: AnnouncementsService;
-  let repoMock: ReturnType<typeof mockAnnouncementsRepository>;
+  let service: AnnouncementsService;
+  let repoMock: jest.Mocked<AnnouncementsRepository>;
 
-  beforeEach(() => {
-    repoMock = mockAnnouncementsRepository();
-    announcementsService = new AnnouncementsService(repoMock as any);
-    announcementsController = new AnnouncementsController(announcementsService);
+  const mockAnnouncementsRepository = {
+    findAll: jest.fn(),
+    findById: jest.fn(),
+    create: jest.fn(),
+    update: jest.fn(),
+    delete: jest.fn(),
+  };
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      controllers: [AnnouncementsController],
+      providers: [
+        AnnouncementsService,
+        {
+          provide: AnnouncementsRepository,
+          useValue: mockAnnouncementsRepository,
+        },
+      ],
+    }).compile();
+
+    announcementsController = module.get<AnnouncementsController>(AnnouncementsController);
+    service = module.get<AnnouncementsService>(AnnouncementsService);
+    repoMock = module.get(AnnouncementsRepository);
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   it('should return all announcements', async () => {
