@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-// On définit l'URL de base ici pour éviter de la répéter
 const BASE_URL = 'http://localhost:5173';
 
 test.beforeEach(async ({ page }) => {
