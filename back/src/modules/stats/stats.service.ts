@@ -25,7 +25,7 @@ export class StatsService {
   }
 
   async update(id: number, data: UpdateStatsDto): Promise<StatsModel | null> {
-    return await this.statsRepo.create(data);
+    return await this.statsRepo.update(id, data);
   }
 
   async delete(id: number): Promise<void> {
