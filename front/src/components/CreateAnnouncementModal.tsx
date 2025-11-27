@@ -14,8 +14,8 @@ export default function CreateAnnouncementModal({ isOpen, onClose }: Props) {
     marque: '',
     model: '',
     perf: '',
-    imageUrl: '', // On ajoute l'image car c'est crucial pour le visuel
-    date: new Date().toISOString().split('T')[0], // Date du jour par défaut
+    imageUrl: '',
+    date: new Date().toISOString().split('T')[0],
   });
 
   if (!isOpen) return null;
@@ -31,7 +31,6 @@ export default function CreateAnnouncementModal({ isOpen, onClose }: Props) {
 
     try {
       // 1. Création de la VOITURE
-      // Note: Assure-toi que ton User ID est géré (ici on met 1 en dur pour l'exemple, ou tu le récupères du contexte)
       const carRes = await fetch('http://localhost:3000/cars', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -39,7 +38,7 @@ export default function CreateAnnouncementModal({ isOpen, onClose }: Props) {
           marque: formData.marque,
           model: formData.model,
           perf: formData.perf,
-          user_id: 1 // À remplacer par l'ID de l'utilisateur connecté plus tard
+          user_id: 1
         }),
       });
       
@@ -68,17 +67,16 @@ export default function CreateAnnouncementModal({ isOpen, onClose }: Props) {
           cars_id: car.id,
           stats_id: stats.id,
           date: formData.date,
-          imageUrl: formData.imageUrl, // Assure-toi d'avoir ajouté cette colonne en BDD comme vu précédemment
+          imageUrl: formData.imageUrl,
           famous: false
         }),
       });
 
       if (!announcementRes.ok) throw new Error("Erreur lors de la publication de l'annonce");
 
-      // Tout est bon !
       onClose();
       alert('Annonce créée avec succès !');
-      window.location.reload(); // Pour rafraîchir les données (ou utilise un callback)
+      window.location.reload();
 
     } catch (err: any) {
       console.error(err);
@@ -94,8 +92,8 @@ export default function CreateAnnouncementModal({ isOpen, onClose }: Props) {
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose}></div>
 
       {/* Modal Box */}
-      <div className="relative bg-zinc-900 border border-white/10 rounded-2xl p-8 w-full max-w-lg shadow-2xl shadow-violet-500/10">
-        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+      <div role="dialog" aria-labelledby="modal-title" className="relative bg-zinc-900 border border-white/10 rounded-2xl p-8 w-full max-w-lg shadow-2xl shadow-violet-500/10">
+        <h2 id="modal-title" className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
           <span className="text-violet-400">+</span> Nouvelle Annonce
         </h2>
 
@@ -106,60 +104,69 @@ export default function CreateAnnouncementModal({ isOpen, onClose }: Props) {
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm text-gray-400 mb-1">Marque</label>
+              <label htmlFor="marque" className="block text-sm text-gray-400 mb-1">Marque</label>
               <input 
+                id="marque"
                 name="marque" 
                 required 
                 placeholder="Ex: Porsche"
-                value={formData.marque} onChange={handleChange}
+                value={formData.marque} 
+                onChange={handleChange}
                 className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-violet-500 outline-none"
               />
             </div>
             <div>
-              <label className="block text-sm text-gray-400 mb-1">Modèle</label>
+              <label htmlFor="model" className="block text-sm text-gray-400 mb-1">Modèle</label>
               <input 
+                id="model"
                 name="model" 
                 required 
                 placeholder="Ex: 911 GT3"
-                value={formData.model} onChange={handleChange}
+                value={formData.model} 
+                onChange={handleChange}
                 className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-violet-500 outline-none"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm text-gray-400 mb-1">Performance (ch)</label>
+            <label htmlFor="perf" className="block text-sm text-gray-400 mb-1">Performance (ch)</label>
             <input 
+              id="perf"
               name="perf" 
               required 
               placeholder="Ex: 510ch"
-              value={formData.perf} onChange={handleChange}
+              value={formData.perf} 
+              onChange={handleChange}
               className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-violet-500 outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-sm text-gray-400 mb-1">URL de la photo</label>
+            <label htmlFor="imageUrl" className="block text-sm text-gray-400 mb-1">URL de la photo</label>
             <input 
+              id="imageUrl"
               name="imageUrl" 
               required 
               placeholder="https://..."
-              value={formData.imageUrl} onChange={handleChange}
+              value={formData.imageUrl} 
+              onChange={handleChange}
               className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-violet-500 outline-none"
             />
             <p className="text-xs text-gray-500 mt-1">Utilisez un lien direct vers une image (Unsplash, etc.)</p>
           </div>
 
           <div>
-            <label className="block text-sm text-gray-400 mb-1">Date de disponibilité</label>
+            <label htmlFor="date" className="block text-sm text-gray-400 mb-1">Date de disponibilité</label>
             <input 
+              id="date"
               type="date"
               name="date" 
               required 
-              value={formData.date} onChange={handleChange}
+              value={formData.date} 
+              onChange={handleChange}
               className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-violet-500 outline-none"
             />
           </div>
