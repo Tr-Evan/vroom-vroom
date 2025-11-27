@@ -1,8 +1,8 @@
-import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { AnnouncementModel } from "./announcements.model";
-import { CreateAnnouncementDto, UpdateAnnouncementDto } from "./announcements.types";
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { AnnouncementModel } from './announcements.model';
+import { CreateAnnouncementDto, UpdateAnnouncementDto } from './announcements.types';
 import { Announcement } from '../../infrastructure/entities/announcement.entity';
 
 @Injectable()
@@ -11,22 +11,23 @@ export class AnnouncementsRepository {
     @InjectRepository(Announcement)
     private readonly repo: Repository<Announcement>,
   ) {}
-  
+
   private toModel(entity: Announcement): AnnouncementModel {
     return new AnnouncementModel(
       entity.id,
       entity.date,
       entity.imageUrl,
       entity.famous,
-      entity.cars_id,
-      entity.stats_id,
+      entity.car,
+      entity.stats,
       entity.created_at,
       entity.updated_at,
     );
-}
-async findAll(): Promise<AnnouncementModel[]> {
+  }
+
+  async findAll(): Promise<AnnouncementModel[]> {
     const entities = await this.repo.find({
-      relations: ['car', 'stats'], 
+      relations: ['car', 'stats'],
     });
     return entities.map(e => this.toModel(e));
   }

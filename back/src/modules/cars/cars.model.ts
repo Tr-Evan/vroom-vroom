@@ -4,10 +4,10 @@ export class CarModel {
     public model: string,
     public marque: string,
     public perf: string | null,
-    public userId: number | null,
+    public user_id: number | null,
     public stats: any | null,
     public announcements: any[],
-    public createdAt: Date,
-    public updatedAt: Date,
+    public readonly created_at: Date,
+    public readonly updated_at: Date,
   ) {}
 }
