@@ -186,7 +186,7 @@ const ListCars = () => {
                 <div className="mb-8">
                     <div className="flex justify-between mb-2">
                         <label className="text-sm font-medium text-gray-400">Budget Max</label>
-                        <span className="text-sm text-blue-500 font-bold">{maxPrice.toLocaleString()} €</span>
+                        <span className="text-sm text-blue-500 font-bold">{maxPrice.toLocaleString('fr-FR')} €</span>
                     </div>
                     <input 
                         type="range" 
@@ -245,7 +245,7 @@ const ListCars = () => {
 
                             <div className="flex items-center justify-between pt-4 border-t border-white/5">
                                 <span className="text-xl font-bold text-white">
-                                    {car.price.toLocaleString()} <span className="text-blue-500">€</span>
+                                    {car.price.toLocaleString('fr-FR')} <span className="text-blue-500">€</span>
                                 </span>
                                 <button
                                   onClick={() => navigate(`/stock/${car.id}`)}
