@@ -4,6 +4,8 @@ import { AnnouncementModel } from "./announcements.model";
 import { AnnouncementsRepository } from "./announcements.repository";
 import { AnnouncementsService } from "./announcements.service";
 import { CreateAnnouncementDto, UpdateAnnouncementDto } from "./announcements.types";
+import { CarModel } from "../cars/cars.model";
+import { StatsModel } from "../stats/stats.model";
 
 describe('AnnouncementsController ', () => {
   let announcementsController: AnnouncementsController;
@@ -41,8 +43,20 @@ describe('AnnouncementsController ', () => {
 
   it('should return all announcements', async () => {
     //Given
+    const mockCar = new CarModel(
+      1,
+      'Model S',
+      'Tesla',
+      '0-100 km/h en 3.2s',
+      null,
+      null,
+      [],
+      new Date(),
+      new Date()
+    );
+    const mockStats = new StatsModel(1, 100, 500);
     const mockData: AnnouncementModel[] = [
-      new AnnouncementModel(1, new Date(), 'url', true, 1, 1, new Date(), new Date()),
+      new AnnouncementModel(1, new Date(), 'url', true, mockCar, mockStats, new Date(), new Date()),
     ];
     repoMock.findAll.mockResolvedValue(mockData);
 
@@ -56,7 +70,19 @@ describe('AnnouncementsController ', () => {
 
   it('should return one announcements', async ()=> {
     //Given
-    const mockData: AnnouncementModel = new AnnouncementModel(1, new Date(), 'url', true, 1, 1, new Date(), new Date())
+    const mockCar = new CarModel(
+      1,
+      'Model S',
+      'Tesla',
+      '0-100 km/h en 3.2s',
+      null,
+      null,
+      [],
+      new Date(),
+      new Date()
+    );
+    const mockStats = new StatsModel(1, 100, 500);
+    const mockData: AnnouncementModel = new AnnouncementModel(1, new Date(), 'url', true, mockCar, mockStats, new Date(), new Date())
     repoMock.findById.mockResolvedValue(mockData)
     
     // When
@@ -69,8 +95,20 @@ describe('AnnouncementsController ', () => {
 
   it('should create a new announcement', async () => {
     //Given
-    const dto: CreateAnnouncementDto = { date: new Date(), imageUrl: 'url', famous: true, cars_id: 1, stats_id: 1 };
-    const created = new AnnouncementModel(1, dto.date, dto.imageUrl, dto.famous, dto.cars_id, dto.stats_id, new Date(), new Date());
+    const mockCar = new CarModel(
+      1,
+      'Model S',
+      'Tesla',
+      '0-100 km/h en 3.2s',
+      null,
+      null,
+      [],
+      new Date(),
+      new Date()
+    );
+    const mockStats = new StatsModel(1, 100, 500);
+    const dto: CreateAnnouncementDto = { date: new Date(), imageUrl: 'url', famous: true, cars_id: mockCar.id, stats_id: mockStats.id };
+    const created = new AnnouncementModel(1, dto.date, dto.imageUrl, dto.famous, mockCar, mockStats, new Date(), new Date());
     repoMock.create.mockResolvedValue(created);
 
     //When
@@ -83,8 +121,21 @@ describe('AnnouncementsController ', () => {
 
   it('should update an announcement', async () => {
     //Given
+    const mockCar = new CarModel(
+       1,
+      'Model S',
+      'Tesla',
+      '0-100 km/h en 3.2s',
+       null,
+      null,
+      [],
+        new Date(),
+       new Date()
+      );
+
+      const mockStats = new StatsModel(1, 100, 500);
     const dto: UpdateAnnouncementDto = { famous: false };
-    const updated = new AnnouncementModel(1, new Date(), 'url', false, 1, 1, new Date(), new Date());
+    const updated = new AnnouncementModel(1, new Date(), 'url', false, mockCar, mockStats, new Date(), new Date());
     repoMock.update.mockResolvedValue(updated);
     repoMock.findById.mockResolvedValue(updated);
 

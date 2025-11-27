@@ -1,3 +1,5 @@
+import { CarModel } from '../cars/cars.model';
+import { StatsModel } from '../stats/stats.model';
 import { AnnouncementModel } from './announcements.model';
 
 describe('AnnouncementModel', () => {
@@ -6,13 +8,26 @@ describe('AnnouncementModel', () => {
   const mockUpdatedDate = new Date('2024-01-20');
 
   beforeEach(() => {
+    const mockCar = new CarModel(
+    5,
+    'Model S',
+    'Tesla',
+    '0-100 km/h en 3.2s',
+    null,
+    null,
+    [],
+    new Date(),
+    new Date()
+  );
+
+const mockStats = new StatsModel(10, 100, 500);
     announcement = new AnnouncementModel(
       1,
       mockDate,
       'https://example.com/image.jpg',
       true,
-      5,
-      10,
+      mockCar,
+      mockStats,
       mockDate,
       mockUpdatedDate,
     );
@@ -41,11 +56,11 @@ describe('AnnouncementModel', () => {
     });
 
     it('should have the correct cars_id', () => {
-      expect(announcement.cars_id).toBe(5);
+      expect(announcement.car.id).toBe(5);
     });
 
     it('should have the correct stats_id', () => {
-      expect(announcement.stats_id).toBe(10);
+      expect(announcement.stats.id).toBe(10);
     });
 
     it('should have the correct created_at date', () => {
@@ -80,16 +95,14 @@ describe('AnnouncementModel', () => {
     it('id should be readonly and cannot be modified', () => {
       const originalId = announcement.id;
       expect(announcement.id).toBe(originalId);
-      // Attempting to set readonly property should fail at compile time
-      // This test verifies the property is set correctly on instantiation
     });
 
     it('cars_id should be readonly and set at instantiation', () => {
-      expect(announcement.cars_id).toBe(5);
+      expect(announcement.car.id).toBe(5);
     });
 
     it('stats_id should be readonly and set at instantiation', () => {
-      expect(announcement.stats_id).toBe(10);
+      expect(announcement.stats.id).toBe(10);
     });
 
     it('created_at should be readonly and set at instantiation', () => {
@@ -103,13 +116,26 @@ describe('AnnouncementModel', () => {
 
   describe('Edge Cases', () => {
     it('should handle empty imageUrl string', () => {
+      const mockCar = new CarModel(
+       6,
+      'Model S',
+      'Tesla',
+      '0-100 km/h en 3.2s',
+       null,
+      null,
+      [],
+        new Date(),
+       new Date()
+      );
+
+      const mockStats = new StatsModel(11, 100, 500);
       const announcementWithEmptyImage = new AnnouncementModel(
         2,
         mockDate,
         '',
         false,
-        6,
-        11,
+        mockCar,
+        mockStats,
         mockDate,
         mockUpdatedDate,
       );
@@ -119,13 +145,26 @@ describe('AnnouncementModel', () => {
     it('should handle past and future dates', () => {
       const pastDate = new Date('2020-01-01');
       const futureDate = new Date('2030-12-31');
+      const mockCar = new CarModel(
+       7,
+      'Model S',
+      'Tesla',
+      '0-100 km/h en 3.2s',
+       null,
+      null,
+      [],
+        new Date(),
+       new Date()
+      );
+
+      const mockStats = new StatsModel(12, 100, 500);
       const announcementWithDates = new AnnouncementModel(
         3,
         pastDate,
         'https://example.com/image.jpg',
         true,
-        7,
-        12,
+        mockCar,
+        mockStats,
         pastDate,
         futureDate,
       );
@@ -135,30 +174,56 @@ describe('AnnouncementModel', () => {
 
     it('should handle large ids', () => {
       const largeId = Number.MAX_SAFE_INTEGER;
+      const mockCar = new CarModel(
+       largeId-1,
+      'Model S',
+      'Tesla',
+      '0-100 km/h en 3.2s',
+       null,
+      null,
+      [],
+        new Date(),
+       new Date()
+      );
+
+      const mockStats = new StatsModel(largeId-2, 100, 500);
       const announcementWithLargeId = new AnnouncementModel(
         largeId,
         mockDate,
         'https://example.com/image.jpg',
         true,
-        largeId - 1,
-        largeId - 2,
+        mockCar,
+        mockStats,
         mockDate,
         mockUpdatedDate,
       );
       expect(announcementWithLargeId.id).toBe(largeId);
-      expect(announcementWithLargeId.cars_id).toBe(largeId - 1);
+      expect(announcementWithLargeId.car.id).toBe(largeId - 1);
     });
   });
 
   describe('Data Integrity', () => {
     it('should maintain data consistency across multiple instantiations', () => {
+      const mockCar = new CarModel(
+       5,
+      'Model S',
+      'Tesla',
+      '0-100 km/h en 3.2s',
+       null,
+      null,
+      [],
+        new Date(),
+       new Date()
+      );
+
+      const mockStats = new StatsModel(10, 100, 500);
       const announcement1 = new AnnouncementModel(
         1,
         mockDate,
         'https://example.com/image1.jpg',
         true,
-        5,
-        10,
+        mockCar,
+        mockStats,
         mockDate,
         mockUpdatedDate,
       );
@@ -168,8 +233,8 @@ describe('AnnouncementModel', () => {
         mockDate,
         'https://example.com/image1.jpg',
         true,
-        5,
-        10,
+        mockCar,
+        mockStats,
         mockDate,
         mockUpdatedDate,
       );
@@ -178,24 +243,49 @@ describe('AnnouncementModel', () => {
     });
 
     it('should differentiate between two different announcements', () => {
+      const mockCar = new CarModel(
+       5,
+      'Model S',
+      'Tesla',
+      '0-100 km/h en 3.2s',
+       null,
+      null,
+      [],
+        new Date(),
+       new Date()
+      );
+
+      const mockStats = new StatsModel(10, 100, 500);
       const announcement1 = new AnnouncementModel(
         1,
         mockDate,
         'https://example.com/image1.jpg',
         true,
-        5,
-        10,
+        mockCar,
+        mockStats,
         mockDate,
         mockUpdatedDate,
       );
+      const mockCarBis = new CarModel(
+       6,
+      'Model S',
+      'Tesla',
+      '0-100 km/h en 3.2s',
+       null,
+      null,
+      [],
+        new Date(),
+       new Date()
+      );
 
+      const mockStatsBis = new StatsModel(11, 100, 500);
       const announcement2 = new AnnouncementModel(
         2,
         mockDate,
         'https://example.com/image2.jpg',
         false,
-        6,
-        11,
+        mockCarBis,
+        mockStatsBis,
         mockDate,
         mockUpdatedDate,
       );
@@ -224,11 +314,11 @@ describe('AnnouncementModel', () => {
     });
 
     it('should enforce type correctness for cars_id (number)', () => {
-      expect(typeof announcement.cars_id).toBe('number');
+      expect(typeof announcement.car.id).toBe('number');
     });
 
     it('should enforce type correctness for stats_id (number)', () => {
-      expect(typeof announcement.stats_id).toBe('number');
+      expect(typeof announcement.stats.id).toBe('number');
     });
 
     it('should enforce type correctness for created_at (Date)', () => {

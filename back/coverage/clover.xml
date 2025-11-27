@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1764246522370" clover="3.2.0">
+  <project timestamp="1764246522370" name="All files">
+    <metrics statements="355" coveredstatements="209" conditionals="174" coveredconditionals="125" methods="111" coveredmethods="51" elements="640" coveredelements="385" complexity="0" loc="355" ncloc="355" packages="8" files="34" classes="34"/>
+    <package name="src">
+      <metrics statements="30" coveredstatements="9" conditionals="6" coveredconditionals="3" methods="5" coveredmethods="3"/>
+      <file name="app.controller.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\app.controller.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+      </file>
+      <file name="app.module.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\app.module.ts">
+        <metrics statements="15" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+      </file>
+      <file name="app.service.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\app.service.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+      <file name="main.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\main.ts">
+        <metrics statements="6" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.config">
+      <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="typeorm.config.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\config\typeorm.config.ts">
+        <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.infrastructure.entities">
+      <metrics statements="57" coveredstatements="49" conditionals="56" coveredconditionals="47" methods="16" coveredmethods="0"/>
+      <file name="announcement.entity.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\infrastructure\entities\announcement.entity.ts">
+        <metrics statements="16" coveredstatements="14" conditionals="20" coveredconditionals="17" methods="4" coveredmethods="0"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="17" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="31" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="34" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="37" count="5" type="cond" truecount="3" falsecount="1"/>
+      </file>
+      <file name="car.entity.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\infrastructure\entities\car.entity.ts">
+        <metrics statements="18" coveredstatements="15" conditionals="16" coveredconditionals="14" methods="6" coveredmethods="0"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="25" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="5" type="stmt"/>
+        <line num="34" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="37" count="5" type="cond" truecount="3" falsecount="1"/>
+      </file>
+      <file name="stats.entity.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\infrastructure\entities\stats.entity.ts">
+        <metrics statements="14" coveredstatements="12" conditionals="12" coveredconditionals="10" methods="4" coveredmethods="0"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="5" type="stmt"/>
+        <line num="27" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="30" count="5" type="cond" truecount="3" falsecount="1"/>
+      </file>
+      <file name="user.entity.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\infrastructure\entities\user.entity.ts">
+        <metrics statements="9" coveredstatements="8" conditionals="8" coveredconditionals="6" methods="2" coveredmethods="0"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="16" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="19" count="5" type="cond" truecount="3" falsecount="1"/>
+      </file>
+    </package>
+    <package name="src.migrations">
+      <metrics statements="19" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="1764086548394-CreateTables.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\migrations\1764086548394-CreateTables.ts">
+        <metrics statements="19" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.modules.announcements">
+      <metrics statements="63" coveredstatements="41" conditionals="42" coveredconditionals="30" methods="21" coveredmethods="13"/>
+      <file name="announcements.controller.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\announcements\announcements.controller.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="32" coveredconditionals="24" methods="6" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="12" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="17" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="cond" truecount="6" falsecount="2"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="1" type="cond" truecount="6" falsecount="2"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="33" count="1" type="stmt"/>
+      </file>
+      <file name="announcements.model.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\announcements\announcements.model.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="45" type="stmt"/>
+        <line num="7" count="45" type="stmt"/>
+        <line num="8" count="45" type="stmt"/>
+        <line num="9" count="45" type="stmt"/>
+        <line num="10" count="45" type="stmt"/>
+        <line num="11" count="45" type="stmt"/>
+        <line num="12" count="45" type="stmt"/>
+        <line num="13" count="45" type="stmt"/>
+      </file>
+      <file name="announcements.module.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\announcements\announcements.module.ts">
+        <metrics statements="9" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+      </file>
+      <file name="announcements.repository.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\announcements\announcements.repository.ts">
+        <metrics statements="18" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="8" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="3" falsecount="1"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+      </file>
+      <file name="announcements.service.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\announcements\announcements.service.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="6"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="10" type="cond" truecount="3" falsecount="1"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+      </file>
+      <file name="announcements.types.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\announcements\announcements.types.ts">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.modules.cars">
+      <metrics statements="66" coveredstatements="39" conditionals="26" coveredconditionals="15" methods="25" coveredmethods="9"/>
+      <file name="cars.controller.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\cars\cars.controller.ts">
+        <metrics statements="17" coveredstatements="14" conditionals="12" coveredconditionals="9" methods="7" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="25" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+      </file>
+      <file name="cars.model.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\cars\cars.model.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="44" type="stmt"/>
+        <line num="4" count="44" type="stmt"/>
+        <line num="5" count="44" type="stmt"/>
+        <line num="6" count="44" type="stmt"/>
+        <line num="7" count="44" type="stmt"/>
+        <line num="8" count="44" type="stmt"/>
+        <line num="9" count="44" type="stmt"/>
+        <line num="10" count="44" type="stmt"/>
+        <line num="11" count="44" type="stmt"/>
+      </file>
+      <file name="cars.module.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\cars\cars.module.ts">
+        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+      <file name="cars.repository.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\cars\cars.repository.ts">
+        <metrics statements="20" coveredstatements="6" conditionals="10" coveredconditionals="3" methods="10" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="3" falsecount="1"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+      </file>
+      <file name="cars.service.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\cars\cars.service.ts">
+        <metrics statements="10" coveredstatements="7" conditionals="4" coveredconditionals="3" methods="7" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+      </file>
+      <file name="cars.type.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\cars\cars.type.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.modules.stats">
+      <metrics statements="55" coveredstatements="36" conditionals="22" coveredconditionals="15" methods="21" coveredmethods="13"/>
+      <file name="stats.controller.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\stats\stats.controller.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="12" coveredconditionals="9" methods="6" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="25" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+      </file>
+      <file name="stats.model.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\stats\stats.model.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="45" type="stmt"/>
+        <line num="4" count="45" type="stmt"/>
+        <line num="5" count="45" type="stmt"/>
+      </file>
+      <file name="stats.module.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\stats\stats.module.ts">
+        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+      <file name="stats.repository.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\stats\stats.repository.ts">
+        <metrics statements="18" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="8" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="3" falsecount="1"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+      </file>
+      <file name="stats.service.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\stats\stats.service.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+      </file>
+      <file name="stats.type.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\stats\stats.type.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.modules.users">
+      <metrics statements="54" coveredstatements="35" conditionals="22" coveredconditionals="15" methods="21" coveredmethods="13"/>
+      <file name="users.controller.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\users\users.controller.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="12" coveredconditionals="9" methods="6" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+      </file>
+      <file name="users.model.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\users\users.model.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+      </file>
+      <file name="users.module.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\users\users.module.ts">
+        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+      </file>
+      <file name="users.repository.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\users\users.repository.ts">
+        <metrics statements="18" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="8" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="3" falsecount="1"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+      </file>
+      <file name="users.service.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\users\users.service.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="6"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+      <file name="users.types.ts" path="C:\Users\pajot\OneDrive\Documents\Cours\Master\M2\Tests\vroom-vroom\back\src\modules\users\users.types.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
